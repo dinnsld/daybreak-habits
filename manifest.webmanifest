@@ -1,0 +1,11 @@
+{
+  "name": "Daybreak Habits",
+  "short_name": "Daybreak",
+  "description": "A free, private habit tracker and daily planner.",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#fffaf3",
+  "theme_color": "#f59e0b",
+  "icons": [{ "src": "icon.svg", "sizes": "any", "type": "image/svg+xml", "purpose": "any maskable" }]
+}

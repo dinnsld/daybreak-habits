@@ -1,0 +1,104 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#f59e0b">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-title" content="Daybreak">
+  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="apple-touch-icon" href="icon.svg">
+  <link rel="icon" href="icon.svg">
+  <link rel="stylesheet" href="styles.css">
+  <title>Daybreak Habits</title>
+</head>
+<body>
+  <header class="top">
+    <div>
+      <p class="eyebrow" id="dateLabel"></p>
+      <h1 id="viewTitle">Today</h1>
+    </div>
+    <div class="ring" id="ring" aria-label="Today's progress"><span id="ringText">0%</span></div>
+  </header>
+
+  <main>
+    <section id="view-today" class="view">
+      <div class="week" id="week"></div>
+      <h2>Habits</h2>
+      <ul class="habits" id="habitList"></ul>
+      <p class="empty" id="habitEmpty">No habits yet. Tap <b>＋</b> to add one, or pick a suggestion.</p>
+      <h2 class="row">Plan <button class="link" id="copyYesterday">Copy unfinished from yesterday</button></h2>
+      <form class="add-task" id="taskForm">
+        <input id="taskInput" placeholder="Add a task for this day" maxlength="120" aria-label="New task">
+        <button>Add</button>
+      </form>
+      <ul class="tasks" id="taskList"></ul>
+    </section>
+
+    <section id="view-stats" class="view" hidden>
+      <div class="cards">
+        <div class="card"><b id="rate7">0%</b><span>Last 7 days</span></div>
+        <div class="card"><b id="rate30">0%</b><span>Last 30 days</span></div>
+        <div class="card"><b id="bestAll">0</b><span>Best streak</span></div>
+      </div>
+      <h2>Last 12 weeks</h2>
+      <div class="heatmap" id="heatmap"></div>
+      <h2>By habit</h2>
+      <ul class="habit-stats" id="habitStats"></ul>
+    </section>
+
+    <section id="view-settings" class="view" hidden>
+      <h2>Theme</h2>
+      <div class="seg" id="themeSeg">
+        <button data-theme="system">System</button><button data-theme="light">Light</button><button data-theme="dark">Dark</button>
+      </div>
+      <h2>Reminder</h2>
+      <div class="row-field">
+        <input type="time" id="reminderTime" aria-label="Reminder time">
+        <button id="reminderBtn">Turn on</button>
+      </div>
+      <p class="hint">Reminders fire while Daybreak is open or recently used. iPhone needs the app added to your Home Screen first.</p>
+      <h2>Backup</h2>
+      <div class="row-field">
+        <button id="exportBtn">Export JSON</button>
+        <label class="btn">Import JSON<input type="file" id="importFile" accept="application/json" hidden></label>
+      </div>
+      <p class="hint">Your data stays on this device only. Export now and then to keep a backup.</p>
+    </section>
+  </main>
+
+  <button class="fab" id="fab" aria-label="Add habit">＋</button>
+
+  <nav class="tabs">
+    <button data-view="today" class="on">Today</button>
+    <button data-view="stats">Stats</button>
+    <button data-view="settings">Settings</button>
+  </nav>
+
+  <dialog id="habitDialog">
+    <form method="dialog" id="habitForm">
+      <h2>New habit</h2>
+      <div class="row-field">
+        <input id="habitEmoji" value="✅" maxlength="4" class="emoji-in" aria-label="Emoji">
+        <input id="habitName" placeholder="e.g. Read 10 pages" maxlength="60" required aria-label="Habit name">
+      </div>
+      <p class="label">Repeat on</p>
+      <div class="days" id="dayPicker"></div>
+      <p class="label">Colour</p>
+      <div class="colors" id="colorPicker"></div>
+      <p class="label">Suggestions</p>
+      <div class="chips" id="suggestions"></div>
+      <p class="error" id="habitError"></p>
+      <menu>
+        <button value="cancel" formnovalidate>Cancel</button>
+        <button value="save" class="primary">Save</button>
+      </menu>
+    </form>
+  </dialog>
+
+  <div class="toast" id="toast" role="status"></div>
+
+  <script src="core.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
