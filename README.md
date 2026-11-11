@@ -1,5 +1,7 @@
 # Daybreak Habits
 
+**Live:** https://dinnsld.github.io/daybreak-habits/
+
 A free, private habit tracker and daily planner that runs in the browser. You can install it on iPhone from Safari: Share → **Add to Home Screen**. It has no account, no subscription and no server; your data stays on the device.
 
 It was built after a feature teardown of the App Store app "Winner Daily Habits Tracker" (see [TEARDOWN.md](TEARDOWN.md)). The code is original and doesn't copy anything from it.
